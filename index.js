@@ -438,3 +438,5 @@ console.log(vowels("ADA APA DENGAN CINTA"))--> 8;
 =========*************====================
 
 */
+
+console.log("next commit")
