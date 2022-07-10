@@ -290,6 +290,19 @@ const anagrams = (stringA, stringB) => {
   return true;
 }
 
+#option 2
+
+const anagrams = (stringA, stringB) => {
+  //Sanitize Input strings
+  stringA = stringA.toLowerCase().replace(/[\W_]+/g, "");
+  stringB = stringB.toLowerCase().replace(/[\W_]+/g, "");
+
+  const stringASorted = stringA.split("").sort().join("");
+  const stringBSorted = stringB.split("").sort().join("");
+
+  return stringASorted === stringBSorted
+}
+
 console.log(anagrams("Heart", "heart"));
 console.log(anagrams('Heart', 'EARTH'));
 console.log(anagrams('lol', 'lolc'));
@@ -297,13 +310,127 @@ console.log(anagrams('lol', 'lolc'));
 =========**************====================
 
 =========**************====================
-Task 
+Task Steps
+wtite a number takes a number n
+over multiple lime it should console log a steps shape
+with N levels using the # character . be sure to notice
+how each step has some number of empty spaces to the right
 
+--example--
+steps(2)
+'#'
+'##'
+steps(3)
+'#'
+'##'
+'###'
+steps(4)
+'#'
+'##'
+'###'
+'####'
+
+const steps = n => {
+  for (let i = 1; i <= n; i++) {
+    let step = "";
+
+    for (let hash = i; hash > 0; hash--) {
+      step += "#";
+    }
+
+    for (let space = n - 1; space > 0; space--) {
+      step += " ";
+    }
+
+    // step += "#".repeat(i);
+    // step += " ".repeat(n - i);
+
+    console.log(step)
+  }
+}
+
+steps(2)
+steps(3)
+steps(4)
+
+=========*************====================
+
+=========*************====================
+Task Pyramid
+
+write a function that accepts a positive number N.
+the function should console log a pyramid shape 
+with N levels using the # characters. Make sure the 
+pyramid has spaces on both the left and right side
+--example--
+pyramid(1)
+    '#'
+pyramid(2)
+    ' # '
+    '###'
+pyramid(3)
+    '  #  '
+    ' ### '
+    '#### '
+
+const pyramid = n => {
+  for (let i = 1; i <= n; i++) {
+    const padding = " ".repeat(n - i);
+    const hashes = "#".repeat(i * 2 - 1);
+
+    console.log(padding + hashes + padding);
+
+  }
+}
+
+pyramid(1)
+pyramid(2)
+pyramid(4)
+
+=========*************====================
+
+=========*************====================
+task Vowels
+Write a function that return the number of vowels found within a string.
+vowel characters are 'a','i','u','e' and 'o'
+Make sure the functiion is case insensitive!
+
+--example--
+vowels("What") --> 1
+vowels("Why?") --> 0
+vowels("aiUEO") --> 5
+
+
+const vowels = str => {
+  str = str.toLowerCase();
+  const vocals = 'aiueo'.split('');
+  let count = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+
+    for (let j = 0; j < vocals.length; j++) {
+      const vocal = vocals[j];
+
+      if (char === vocal) {
+        count++;
+      }
+    }
+  }
+
+  return count;
+}
+
+console.log(vowels("ADA APA DENGAN CINTA"))--> 8;
 
 =========*************====================
 
 =========*************====================
 
+
+=========*************====================
+
+=========*************====================
 
 
 =========*************====================
@@ -311,5 +438,3 @@ Task
 =========*************====================
 
 */
-
-
